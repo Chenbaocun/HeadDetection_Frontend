@@ -244,6 +244,7 @@ export default {
                     this.LoninButtonVisible = true;
                     this.UserDropdownVisible = false;
                     this.open2("注销成功");
+                    this.$cookieStore.delCookie('islogin');
                     return true;
                 }
             }.bind(this))
@@ -267,6 +268,7 @@ export default {
                                 this.UserDropdownVisible = true;
                                 this.UsernameInDropdown = response['data'];
                                 this.open2("登陆成功")
+                                this.$cookieStore.setCookie('islogin',1,1296000)//为了保持登录状态，Django的sessionid是httponly的
                             }
                             else {
                                 this.open4("账号或者密码错误，请检查")
