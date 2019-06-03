@@ -22,9 +22,8 @@
     :auto-upload="false"
     ref="upload"
     action="/api/UploadVideo/"
-    multiple
     name="upload_video"
-    :limit="2"
+    :limit="1"
     :on-success="onSuccess"
     :on-error="onError"
     :on-remove="onRemove"
@@ -33,7 +32,7 @@
     >
   <i class="el-icon-upload"></i>
   <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-  <div class="el-upload__tip" slot="tip">请选择要进行人流量监测视频文件(.mp4格式)</div>
+  <div class="el-upload__tip" slot="tip">请选择要进行人流量计算的视频(.mp4格式)</div>
     </el-upload>
     </el-card>
 </div>
@@ -65,9 +64,17 @@
         });
         },
         beforeUpload(file){
-             // if(file.status=='ready'){
-             //    this.$refs.upload.submit();
-             // }
+            if(file.type=='video/mp4'){
+
+            }
+            else {
+                this.$refs.upload.clearFiles();
+                this.$refs.upload.abort();
+                this.$message({
+                    type: 'error',
+                    message: '您只能上传mp4格式的视频文件'
+                                });
+            }
         },
         onRemove(){
             this.$confirm('是否取消上传文件？', '提示', {

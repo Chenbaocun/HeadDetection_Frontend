@@ -10,7 +10,7 @@
     <div>
         <el-row class="tac">
   <el-col :span="3">
-    <el-menu
+    <el-menu router
       default-active="2"
       class="el-menu-vertical-demo"
       @open="handleOpen"
@@ -22,11 +22,10 @@
         </template>
         <el-menu-item-group>
 
-          <el-menu-item index="1-1"><i class="el-icon-upload2"></i>我上传的视频</el-menu-item>
-          <el-menu-item index="1-1"><i class="el-icon-tickets"></i>计算结果</el-menu-item>
+          <el-menu-item index="myupload"><i class="el-icon-upload2"></i>我上传的视频</el-menu-item>
+          <el-menu-item index="result"><i class="el-icon-tickets"></i>计算结果</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-
 
         <el-submenu index="2">
         <template slot="title">
@@ -40,7 +39,14 @@
       </el-submenu>
     </el-menu>
   </el-col>
+       <el-col :span="10" :offset="3">
+            <transition name="fade" mode="out-in">
+               <!--路由的组件将显示在这个位置-->
+               <router-view></router-view>
+            </transition>
+       </el-col>
 </el-row>
+
     </div>
 </template>
 
@@ -59,5 +65,19 @@
 </script>
 
 <style scoped>
+/*过渡动画css*/
+.fade-enter{
+  opacity: 0;
+}
 
+  .fade-enter-active{
+    transition: opacity 0.5s;
+  }
+  .fade-leave{
+    opacity: 1;
+  }
+  .fade-leave-active{
+    opacity: 0;
+    transition:opacity 0.5s ;
+  }
 </style>

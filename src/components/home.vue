@@ -8,8 +8,8 @@
                 <div style="font-size: xx-large">基于边缘计算的人流量云监管平台</div>
             <el-button style="margin-top: 2%;font-size: medium" icon="el-icon-download">点击下载</el-button>
             <div style="font-size: small;margin-top: 1%" >当前版本：v1.0 &emsp;|&emsp;系统支持：Android 5.0及以上&emsp;|&emsp;下载量：0</div>
-        <el-button style="margin-top: 1%;font-size: medium " icon="el-icon-star-on" size="mini">Star 0</el-button>
-        <el-button style="margin-top: 1%;font-size: medium " icon="el-icon-copy-document" size="mini">Fork 0</el-button>
+            <el-button style="margin-top: 1%;font-size: medium " icon="el-icon-star-on" size="mini" @click="Star">Star 0</el-button>
+        <el-button style="margin-top: 1%;font-size: medium " icon="el-icon-copy-document" size="mini" @click="Star">Fork 0</el-button>
         </div>
         <!--卡片-->
         <div style="position: absolute;left: 42%;top: 100%;" >
@@ -54,6 +54,12 @@
         data(){
             return {
             url: bg,
+            }
+        },
+        methods:{
+            Star(){
+                window.open('https://github.com/Chenbaocun?tab=repositories','_blank')
+
             }
         }
     }

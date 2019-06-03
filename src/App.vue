@@ -7,7 +7,7 @@
        <el-button type="text" style="font-family: 书体坊郭小语钢笔楷体 ;font-size: 30px;font-weight: 900" default-active>警察数数_φ(❐_❐✧</el-button>
      </el-menu-item>
        <el-menu-item index="/real-time" >发现</el-menu-item>
-       <el-menu-item index="/abnormal">我的</el-menu-item>
+       <el-menu-item index="/me">我的</el-menu-item>
        <el-menu-item index="/detection_util">检测工具</el-menu-item>
        <el-menu-item index="/FunPlus">Fun+</el-menu-item>
        <el-menu-item idnex="5" style="float: left;padding-left: 50px">
