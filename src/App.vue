@@ -245,6 +245,8 @@ export default {
                     this.UserDropdownVisible = false;
                     this.open2("注销成功");
                     this.$cookieStore.delCookie('islogin');
+                    window.open('/','_self');
+                    //this.$router.push({path:'/'})//跳转后导航栏的active位置没变，虽然页面正确跳转了
                     return true;
                 }
             }.bind(this))
