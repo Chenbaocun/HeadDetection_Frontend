@@ -84,7 +84,7 @@ import video_player from './video_player'
         },
         videoPlay(filename){
           var videourl= "http://39.96.169.188/video_play/?filename="+filename;
-          alert(videourl);
+          // alert(videourl);
           this.dialogVisible=true;
           this.videoUrl=videourl;
         },

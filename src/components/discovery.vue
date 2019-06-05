@@ -50,6 +50,7 @@
          },
         methods:{
         onSuccess(){
+            this.$refs.upload.clearFiles();
             this.$notify({
                  title: '上传成功',
                  message: '视频文件上传成功，排队处理中....',
