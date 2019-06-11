@@ -1,14 +1,14 @@
 <!--
 # -*- coding: utf-8 -*-
-# @Time : 2019/6/3 18:37
+# @Time : 2019/6/11 16:37
 # @Author : Tom Chen
 # @Email : chenbaocun@emails.bjut.edu.cn
-# @File : myupload.py
+# @File : abnormalImage.py
 # @Software: PyCharm
 -->
 <template>
-<div>
-<el-table
+    <div>
+    <el-table
       :data="tableData"
       style="width: 100%"
       v-loading="loading">
@@ -33,12 +33,11 @@
       <template slot-scope="scope">
         <el-button
           size="mini"
-          @click="videoPlay(scope.row.filename)" icon="el-icon-video-play" type="success" v-if="scope.row.status==='计算完成'">播放</el-button>
+          @click="ImagePlay(scope.row.filename)" icon="el-icon-video-play" type="success" v-if="scope.row.status==='计算完成'">查看</el-button>
       </template>
     </el-table-column>
     </el-table>
-    <!--弹出视频框-->
-      <el-dialog
+              <el-dialog
             title="服务器上传带宽有限，您可以缓冲完之后再进行播放(｡•́__ก̀｡)"
             :visible.sync="dialogVisible"
             ref="videoDialog"
@@ -46,33 +45,33 @@
             height="70%"
             :close-on-click-modal="false"
             :before-close="handleClose">
-          <video_player :video-url="videoUrl" :state="state" ></video_player>
-            <!--<iframe id="video_iframe" src="//player.bilibili.com/player.html?aid=48217486&cid=84457072&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%;height:700px"> </iframe>-->
+          <ImagePlayer :Imageurl="ImageUrl" :state="state" ></ImagePlayer>
       </el-dialog>
-</div>
+   </div>
 </template>
+
 <script>
-import video_player from './video_player'
+    import ImagePlayer from './ImagePlayer'
     export default {
-        name: "myupload",
-        components: {
-        video_player
-    },
-        data() {
+        name: "abnormalImage",
+        components:{
+            ImagePlayer
+        },
+         data() {
             return {
                 tableData: [],
                 dialogVisible: false,
-                videoUrl:"",
+                ImageUrl:"",
                 state:false,
                 loading:true
             }
         },
-      mounted(){
-        this.myupload()
+        mounted(){
+        this.getAbnormalImageList()
       },
-      methods:{
-            myupload() {
-            this.$ajax.post('/api/myupload/').then(function (response) {//这个请求不需要发送参数
+        methods:{
+            getAbnormalImageList(){
+                this.$ajax.post('/api/getAbnormalImageList/').then(function (response) {//这个请求不需要发送参数
                 if (response['data'] != "") {//这返回的不是null，而是""
                     var result=(response['data']);
                     this.tableData=result['data'];
@@ -84,26 +83,25 @@ import video_player from './video_player'
                     this.open4(error);
                     return false;
                 })
-        },
-        videoPlay(filename){//http://39.96.169.188 ???还有疑问
-          var videourl= "/api/video_play/?filename="+filename;
-          // alert(videourl);
+            },
+            ImagePlay(filename){//http://39.96.169.188 ???还有疑问
+          var Imageurl= "/api/image_play/?filename="+filename;
+          // alert(Imageurl);
           this.dialogVisible=true;
-          this.videoUrl=videourl;
+          this.ImageUrl=Imageurl;
         },
-        handleClose(done) {
-        this.$confirm('确认关闭？')
+            handleClose(done) {
+            this.$confirm('确认关闭？')
           .then(_ => {
               // document.getElementById('video_iframe').remove();
-            this.videoUrl="";
+            this.ImageUrl="";
             this.state=true;
             done();
           })
           .catch(_ => {});
       }
-        },
+        }
     }
-
 </script>
 
 <style scoped>

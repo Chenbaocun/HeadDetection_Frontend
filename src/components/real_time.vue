@@ -1,15 +1,15 @@
-# -*- coding: utf-8 -*-
-# @Time : 2019/5/29 18:27
-# @Author : Tom Chen
-# @Email : chenbaocun@emails.bjut.edu.cn
-# @File : real_time.py
-# @Software: PyCharm
+<!--# -*- coding: utf-8 -*- -->
+<!--# @Time : 2019/5/29 18:27-->
+<!--# @Author : Tom Chen-->
+<!--# @Email : chenbaocun@emails.bjut.edu.cn-->
+<!--# @File : real_time.py-->
+<!--# @Software: PyCharm-->
 <template>
        <div>
                <!--导航-->
-               <el-row class="tac">
+   <el-row class="tac">
   <el-col :span="3">
-    <el-menu
+    <el-menu router
       default-active="2"
       class="el-menu-vertical-demo"
       @open="handleOpen"
@@ -21,33 +21,45 @@
         </template>
         <el-menu-item-group>
           <template slot="title">监测数据</template>
-          <el-menu-item index="1-1">人流排行榜</el-menu-item>
-          <el-menu-item index="1-1">实时人流数据</el-menu-item>
-          <el-menu-item index="1-2">在线地点数据</el-menu-item>
-          <el-menu-item index="1-1">在线设备数据</el-menu-item>
+          <el-menu-item index="real_time_count"><i class="el-icon-alarm-clock"></i>实时人流</el-menu-item>
+          <el-menu-item index="abnormalImage"><i class="el-icon-picture-outline"></i>边缘端异常上传</el-menu-item>
+          <el-menu-item index="1-2"><i class="el-icon-trophy"></i>人流排行榜</el-menu-item>
+            <el-menu-item index="online_user"><i class="el-icon-mobile-phone"></i>在线设备数据</el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="统计数据">
-          <el-menu-item index="1-3">人流趋势</el-menu-item>
-          <el-menu-item index="1-4">在线设备统计</el-menu-item>
-          <el-menu-item index="1-4">高危地点统计</el-menu-item>
+        <el-menu-item-group title="数据分析">
+          <el-menu-item index="1-3"><i class="el-icon-data-analysis"></i>人流历史统计</el-menu-item>
+          <el-menu-item index="1-4"><i class="el-icon-pie-chart"></i>高危地点统计</el-menu-item>
+          <el-menu-item index="1-4"><i class="el-icon-edit-outline"></i>监测建议</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-
-
         <el-submenu index="2">
         <template slot="title">
           <i class="el-icon-setting"></i>
           <span>设置</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="1-1">阈值设定</el-menu-item>
-          <el-menu-item index="1-2">意见建议</el-menu-item>
-          <el-menu-item index="1-1">在线设备数据</el-menu-item>
+              <el-menu-item index="threshold"><i class="el-icon-odometer"></i>阈值设置</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-
+        <el-submenu index="3">
+        <template slot="title">
+          <i class="el-icon-info"></i>
+          <span>关于</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="ECShardware"><i class="el-icon-cpu"></i>云服务器配置信息</el-menu-item>
+          <el-menu-item index="platformIntroduce"><i class="el-icon-s-platform"></i>平台介绍</el-menu-item>
+          <el-menu-item index="privacyStatement"><i class="el-icon-document"></i>隐私声明</el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
     </el-menu>
   </el-col>
+   <el-col :span="10" :offset="3">
+            <transition name="fade" mode="out-in">
+               <!--路由的组件将显示在这个位置-->
+               <router-view></router-view>
+            </transition>
+   </el-col>
 </el-row>
         </div>
 </template>
@@ -67,5 +79,19 @@
 </script>
 
 <style scoped>
+/*过渡动画css*/
+.fade-enter{
+  opacity: 0;
+}
 
+  .fade-enter-active{
+    transition: opacity 0.5s;
+  }
+  .fade-leave{
+    opacity: 1;
+  }
+  .fade-leave-active{
+    opacity: 0;
+    transition:opacity 0.5s ;
+  }
 </style>

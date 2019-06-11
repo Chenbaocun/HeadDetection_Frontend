@@ -24,7 +24,7 @@ new Vue({
 
 // 配置路由权限
 router.beforeEach((to, from, next) => {
-      // alert(document.cookie);
+      // 登陆验证alert(document.cookie);
   if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
 
     if (document.cookie.length!=0) { // 判断本地是否存在access_token

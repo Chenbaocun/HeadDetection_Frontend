@@ -23,20 +23,12 @@
         <el-menu-item-group>
 
           <el-menu-item index="myupload"><i class="el-icon-upload2"></i>我上传的视频</el-menu-item>
-          <el-menu-item index="result"><i class="el-icon-tickets"></i>计算结果</el-menu-item>
+          <!--<el-menu-item index="result"><i class="el-icon-tickets"></i>计算结果</el-menu-item>-->
         </el-menu-item-group>
       </el-submenu>
 
-        <el-submenu index="2">
-        <template slot="title">
-          <i class="el-icon-data-analysis"></i>
-          <span>我的统计</span>
-        </template>
-        <el-menu-item-group>
-              <el-menu-item index="1-1">我的上传</el-menu-item>
-              <el-menu-item index="1-2">意见建议</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
+        <el-menu-item index="advice"><i class="el-icon-message"></i>意见建议</el-menu-item>
+
     </el-menu>
   </el-col>
        <el-col :span="10" :offset="3">

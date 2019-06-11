@@ -66,15 +66,16 @@
         },
         beforeUpload(file){
             if(file.type=='video/mp4'){
-
+                console.log("格式符合要求");
             }
             else {
-                this.$refs.upload.clearFiles();
-                this.$refs.upload.abort();
+                // this.$refs.upload.abort(file);
+                // this.$refs.upload.clearFiles();
                 this.$message({
                     type: 'error',
                     message: '您只能上传mp4格式的视频文件'
                                 });
+                  return false
             }
         },
         onRemove(){
