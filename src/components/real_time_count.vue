@@ -11,12 +11,12 @@
 
     <el-row class="tac" style="margin-top: 5%">
              <el-col :span="20">
-                <el-card class="box-card" v-loading="loading">
+                <el-card class="box-card" v-loading="loading0">
                     <div slot="header" class="clearfix">
-                        <span style="font-size: x-large ;font-family: 黑体">检测场景预览(场景识别)</span>
+                        <span style="font-size: x-large ;font-family: 黑体">检测场景</span>
                     </div>
-                    <div  class="text item" :style="style">
-
+                    <div  style="font-size: 200px">
+                        {{target}}
                     </div>
                 </el-card>
              </el-col>
@@ -43,10 +43,13 @@
                 Total:"0",
                 style:'',//中间带连接线的可以使用‘’方式替代
                 timer: '',  // 定时器名称
-                loading:true
+                loading0:true,
+                loading:true,
+                target:''
             }
         },
         mounted(){
+            this.getTarget();
             this.timer=setInterval(this.realTimeCount,500);
         },
         beforeDestroy(){
@@ -73,6 +76,25 @@
                     this.loading=false;
                     clearInterval(this.timer);//关闭定时器//离线就不再继续请求
                 }
+            }.bind(this))
+                .catch(function (error) {
+                    this.open4(error);
+                    return false;
+                })
+            },
+            getTarget(){
+                 this.$ajax.post('/api/getTarget/').then(function (response) {//这个请求不需要发送参数
+                   // console.log(response['data']);
+                if (response['data'] != "") {//这返回的不是null，而是""
+                    this.target=response['data'];
+                   this.loading0=false
+                }
+                else{
+                    this.loading0=false;
+                    this.target="设备离线";
+
+                }
+
             }.bind(this))
                 .catch(function (error) {
                     this.open4(error);

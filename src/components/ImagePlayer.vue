@@ -8,7 +8,7 @@
 -->
 <template>
     <div class="">
-    <el-image :src='src'></el-image>
+    <el-image :src='src' v-loading="loading" @load="load"></el-image>
   </div>
 </template>
 
@@ -21,15 +21,22 @@
         },
         data(){
             return{
-                src:this.Imageurl
+                src:this.Imageurl,
+                loading:true
             }
+        },
+        methods:{
+          load(){
+              this.loading=false
+          }
         },
         watch:{
              //更改视频源 videoUrl从弹出框组件传值
             Imageurl: function (val) {
                 // alert(val);
                 if (val !== '') {
-                    this.Imageurl=val
+                    this.src=val//付给imageurl的话是不会更新的
+                    this.loading=true
                 }
             },
            //弹出框关闭后暂停 否则一直在播放 state从弹出框组件传值

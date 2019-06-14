@@ -9,10 +9,11 @@ import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
 import 'vue-video-player/src/custom-theme.css'
 import {getCookie,setCookie,delCookie} from "./assets/cookie";
-
+import echarts from 'echarts'
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.use(VueVideoPlayer);
+Vue.prototype.$echarts = echarts ;
 Vue.prototype.$ajax = axios;
 Vue.prototype.$qs = qs;
 Vue.prototype.$cookieStore={setCookie,getCookie,delCookie};

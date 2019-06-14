@@ -15,17 +15,27 @@
       <el-table-column
         prop="date"
         label="日期"
-        width="250">
+        width="150">
       </el-table-column>
       <el-table-column
         prop="filename"
         label="文件名"
-        width="250">
+        width="150">
+      </el-table-column>
+       <el-table-column
+        prop="target"
+        label="检测场景"
+        width="200">
       </el-table-column>
       <el-table-column
         prop="status"
         label="当前状态"
-        width="200">
+        >
+      </el-table-column>
+       <el-table-column
+        prop="result"
+        label="计算结果"
+        >
       </el-table-column>
       <el-table-column
          prop="status"
@@ -38,13 +48,14 @@
     </el-table-column>
     </el-table>
               <el-dialog
-            title="服务器上传带宽有限，您可以缓冲完之后再进行播放(｡•́__ก̀｡)"
+            title="服务器上传带宽有限，可能需要加载一点时间(｡•́__ก̀｡)"
             :visible.sync="dialogVisible"
             ref="videoDialog"
             width="70%"
             height="70%"
             :close-on-click-modal="false"
-            :before-close="handleClose">
+            ><!--:before-close="handleClose"-->
+
           <ImagePlayer :Imageurl="ImageUrl" :state="state" ></ImagePlayer>
       </el-dialog>
    </div>

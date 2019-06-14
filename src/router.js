@@ -14,6 +14,10 @@ import privacyStatement from './components/privacyStatement'
 import real_time_count from './components/real_time_count'
 import online_user from './components/online_user'
 import abnormalImage from './components/abnormalImage'
+import rank from './components/rank'
+import history_statistic from './components/history_statistic'
+import moniter_advice from './components/moniter_advice'
+import dangerous_place from './components/dangerous_place'
 import Vue from 'vue'
 import VueRouter from "vue-router"
 Vue.use(VueRouter);//如果以import的方式引入，则必须明确安装路由功能
@@ -23,11 +27,16 @@ const routes=[
     children:[
         {path:'/real_time_count',component:real_time_count},
         {path:'/abnormalImage',component:abnormalImage},
+        {path:'/rank',component:rank},
+        {path:'/history_statistic',component:history_statistic},
         {path:'/online_user',component:online_user},
         {path:'/ECShardware',component:ECShardware},
         {path:'/platformIntroduce',component:platformIntroduce},
         {path:'/privacyStatement',component:privacyStatement},
         {path:'/threshold',component:threshold},
+        {path:'/moniter_advice',component:moniter_advice},
+        {path:'/dangerous_place',component:dangerous_place},
+
     ]},
     {path:'/FunPlus',component:FunPlus,meta: {requireAuth: true}},
     {path:'/me',component:community,meta: {requireAuth: true},

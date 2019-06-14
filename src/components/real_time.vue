@@ -23,13 +23,13 @@
           <template slot="title">监测数据</template>
           <el-menu-item index="real_time_count"><i class="el-icon-alarm-clock"></i>实时人流</el-menu-item>
           <el-menu-item index="abnormalImage"><i class="el-icon-picture-outline"></i>边缘端异常上传</el-menu-item>
-          <el-menu-item index="1-2"><i class="el-icon-trophy"></i>人流排行榜</el-menu-item>
+          <el-menu-item index="rank"><i class="el-icon-trophy"></i>人流排行榜</el-menu-item>
             <el-menu-item index="online_user"><i class="el-icon-mobile-phone"></i>在线设备数据</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group title="数据分析">
-          <el-menu-item index="1-3"><i class="el-icon-data-analysis"></i>人流历史统计</el-menu-item>
-          <el-menu-item index="1-4"><i class="el-icon-pie-chart"></i>高危地点统计</el-menu-item>
-          <el-menu-item index="1-4"><i class="el-icon-edit-outline"></i>监测建议</el-menu-item>
+          <el-menu-item index="history_statistic"><i class="el-icon-data-analysis"></i>人流历史统计</el-menu-item>
+          <el-menu-item index="dangerous_place"><i class="el-icon-pie-chart"></i>高危地点统计</el-menu-item>
+          <el-menu-item index="moniter_advice"><i class="el-icon-edit-outline"></i>监测建议</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
         <el-submenu index="2">

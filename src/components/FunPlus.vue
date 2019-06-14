@@ -10,15 +10,23 @@
     <div id="FunPlus">
     <img src="../assets/fun1.gif">
      <div style="position: absolute;left: 60%">
-    <el-button type="success" icon="el-icon-check">Like</el-button>
-    <el-button type="info" icon="el-icon-close">Dislike</el-button>
+    <el-button type="success" icon="el-icon-check" @click="open3">Like</el-button>
+    <el-button type="info" icon="el-icon-close" @click="open3">Dislike</el-button>
     </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "FunPlus"
+        name: "FunPlus",
+        methods:{
+          open3() {
+        this.$notify.info({
+          title: '提醒',
+          message: '待开发！'
+        });
+      },
+        }
     }
 </script>
 
