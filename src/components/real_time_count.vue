@@ -57,7 +57,7 @@
         },
         methods:{
             realTimeCount(){
-            this.$ajax.post('/api/real_time_count/').then(function (response) {//这个请求不需要发送参数
+            this.$ajax.post('/real_time_count/').then(function (response) {//这个请求不需要发送参数
                    // console.log(response['data']);
                 if (response['data'] != "-1") {//这返回的不是null，而是""
                    this.Total=response['data']['real_time_count'];
@@ -83,7 +83,7 @@
                 })
             },
             getTarget(){
-                 this.$ajax.post('/api/getTarget/').then(function (response) {//这个请求不需要发送参数
+                 this.$ajax.post('/getTarget/').then(function (response) {//这个请求不需要发送参数
                    // console.log(response['data']);
                 if (response['data'] != "") {//这返回的不是null，而是""
                     this.target=response['data'];

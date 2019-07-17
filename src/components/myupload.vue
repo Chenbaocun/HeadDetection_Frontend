@@ -72,7 +72,7 @@ import video_player from './video_player'
       },
       methods:{
             myupload() {
-            this.$ajax.post('/api/myupload/').then(function (response) {//这个请求不需要发送参数
+            this.$ajax.post('/myupload/').then(function (response) {//这个请求不需要发送参数
                 if (response['data'] != "") {//这返回的不是null，而是""
                     var result=(response['data']);
                     this.tableData=result['data'];
@@ -86,7 +86,7 @@ import video_player from './video_player'
                 })
         },
         videoPlay(filename){//http://39.96.169.188 ???还有疑问
-          var videourl= "/api/video_play/?filename="+filename;
+          var videourl= "/video_play/?filename="+filename;
           // alert(videourl);
           this.dialogVisible=true;
           this.videoUrl=videourl;

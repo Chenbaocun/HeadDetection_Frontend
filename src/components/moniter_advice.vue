@@ -12,7 +12,7 @@
     <span style="font-size: x-large ;font-family: 黑体">监测建议</span>
   </div>
   <div  class="text item" >
-      根据平台内所有用户上报的监测数据，近期<div style="font-size: 20px ;color: red" v-loading="loading">{{place}}</div>出现异常数最多为<div style="font-size: 20px ;color: red" v-loading="loading">{{count}}</div>次,因此您及时向有关部门进行汇报，加强对该类区域的监视和巡查(*^▽^*)！
+      根据平台内所有用户上报的监测数据，近期<div style="font-size: 20px ;color: red" v-loading="loading">{{place}}</div>出现异常数最多为<div style="font-size: 20px ;color: red" v-loading="loading">{{count}}</div>次,因此希望您及时向有关部门进行汇报，加强对该类区域的监视和巡查(*^▽^*)！
   </div>
 </el-card>
 </template>
@@ -33,7 +33,7 @@
         methods:{
             gethighest(){
                 var _this=this;
-                this.$ajax.post('/api/gethighest/').then(function (response) {//这个请求不需要发送参数
+                this.$ajax.post('/gethighest/').then(function (response) {//这个请求不需要发送参数
                 if (response['data'] != "") {//这返回的不是null，而是""
                     var res=response['data'].split("#");
                     this.place=res[0];

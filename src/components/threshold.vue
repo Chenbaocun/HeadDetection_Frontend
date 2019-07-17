@@ -51,7 +51,7 @@
       },
       getThreshold(){
           var _this=this;
-          this.$ajax.post('/api/get_threshold/').then(function (response) {//这个请求不需要发送参数
+          this.$ajax.post('/get_threshold/').then(function (response) {//这个请求不需要发送参数
                 // console.log(response);
                 if (response['data'] != "") {//这返回的不是null，而是""
                     this.threshold = "当前阈值为："+response['data'];
@@ -73,7 +73,7 @@
                       this.$refs[formName].validate((valid) => {
                 if (valid) {
                     console.log('successfully submit!!');
-                    this.$ajax.post('/api/set_threshold/', this.$qs.stringify({//必须用qs模块，把数据整合成类似get型 uri的形式
+                    this.$ajax.post('/set_threshold/', this.$qs.stringify({//必须用qs模块，把数据整合成类似get型 uri的形式
                         threshold_update: this.numberValidateForm.threshold_update,
                     }))
                         .then(function (response) {

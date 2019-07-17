@@ -21,7 +21,7 @@
     drag
     :auto-upload="false"
     ref="upload"
-    action="/api/UploadVideo/"
+    action="/UploadVideo/"
     name="upload_video"
     :limit="1"
     :on-success="onSuccess"
@@ -98,7 +98,7 @@
         onChange(file){
             var _this=this;
             if(file.status=='ready'){
-            this.$ajax.post('/api/beforeUploadVideo/',this.$qs.stringify({//必须用qs模块，把数据整合成类似get型 uri的形式
+            this.$ajax.post('/beforeUploadVideo/',this.$qs.stringify({//必须用qs模块，把数据整合成类似get型 uri的形式
                         filename: file.name
                     })).then(function (response) {//这个请求不需要发送参数
                 if (response['data'] != "") {//这返回的不是null，而是""

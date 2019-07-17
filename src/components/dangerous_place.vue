@@ -32,7 +32,7 @@
         methods:{
             getPlacecount(){
                 var _this=this;
-                this.$ajax.post('/api/getPlacecount/').then(function (response) {//这个请求不需要发送参数
+                this.$ajax.post('/getPlacecount/').then(function (response) {//这个请求不需要发送参数
                 if (response['data'] != "") {//这返回的不是null，而是""
                     var res=response['data'].split("#");
                     this.school=res[0];

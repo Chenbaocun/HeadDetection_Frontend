@@ -46,7 +46,7 @@
                       this.$refs[formName].validate((valid) => {
                 if (valid) {
                     console.log('successfully submit!!');
-                    this.$ajax.post('/api/up_advice/', this.$qs.stringify({//必须用qs模块，把数据整合成类似get型 uri的形式
+                    this.$ajax.post('/up_advice/', this.$qs.stringify({//必须用qs模块，把数据整合成类似get型 uri的形式
                         up_advice: this.numberValidateForm1.up_advice,
                     }))
                         .then(function (response) {

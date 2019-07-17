@@ -82,7 +82,7 @@
       },
         methods:{
             getAbnormalImageList(){
-                this.$ajax.post('/api/getAbnormalImageList/').then(function (response) {//这个请求不需要发送参数
+                this.$ajax.post('/getAbnormalImageList/').then(function (response) {//这个请求不需要发送参数
                 if (response['data'] != "") {//这返回的不是null，而是""
                     var result=(response['data']);
                     this.tableData=result['data'];
@@ -96,7 +96,7 @@
                 })
             },
             ImagePlay(filename){//http://39.96.169.188 ???还有疑问
-          var Imageurl= "/api/image_play/?filename="+filename;
+          var Imageurl= "/image_play/?filename="+filename;
           // alert(Imageurl);
           this.dialogVisible=true;
           this.ImageUrl=Imageurl;

@@ -5,8 +5,9 @@
 <!--fixed没有进度条-->
         <div class="pull-height" :style="{backgroundImage:'url('+url+')'}" style="height: 80%;width:100%;background-size: 100% 100%;position: absolute ;left: 0px;right: 0px">
              <img src="../assets/plane.png" style="margin-top: 5%">
-                <div style="font-size: xx-large">基于边缘计算的人流量云监管平台</div>
-            <el-button style="margin-top: 2%;font-size: medium" icon="el-icon-download">点击下载</el-button>
+                <div style="font-size: xx-large">警察数数人流量云监管平台</div>
+            <!--基于边缘计算的人流量云监管平台-->
+            <el-button style="margin-top: 2%;font-size: medium" icon="el-icon-download" @click="download">点击下载</el-button>
             <div style="font-size: small;margin-top: 1%" >当前版本：v1.0 &emsp;|&emsp;系统支持：Android 5.0及以上&emsp;|&emsp;下载量：0</div>
             <el-button style="margin-top: 1%;font-size: medium " icon="el-icon-star-on" size="mini" @click="Star">Star 0</el-button>
         <el-button style="margin-top: 1%;font-size: medium " icon="el-icon-copy-document" size="mini" @click="Star">Fork 0</el-button>
@@ -58,9 +59,13 @@
         },
         methods:{
             Star(){
+                alert("当前仓库状态为Private，您无法看见！等待比赛结束后会开源！");
                 window.open('https://github.com/Chenbaocun?tab=repositories','_blank')
-
+            },
+            download(){
+                window.open("/download/");
             }
+
         }
     }
 </script>

@@ -219,7 +219,7 @@ export default {
             console.log(key, keyPath);
         },
         Index() {
-            this.$ajax.post('/api/Index/').then(function (response) {//这个请求不需要发送参数
+            this.$ajax.post('/Index/').then(function (response) {//这个请求不需要发送参数
                 // console.log(response);
                 if (response['data'] != "") {//这返回的不是null，而是""
                     this.LoninButtonVisible = false;
@@ -238,7 +238,7 @@ export default {
             this.LoginFormVisible = true;//用this可以访问
         },
         Logout(){
-             this.$ajax.post('/api/Logout/').then(function (response) {//这个请求不需要发送参数
+             this.$ajax.post('/Logout/').then(function (response) {//这个请求不需要发送参数
                 // console.log(response);
                 if (response['data'] != "") {//这返回的不是null，而是""
                     this.LoninButtonVisible = true;
@@ -259,7 +259,7 @@ export default {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     console.log('successfully submit!!');
-                    this.$ajax.post('/api/login/', this.$qs.stringify({//必须用qs模块，把数据整合成类似get型 uri的形式
+                    this.$ajax.post('/login/', this.$qs.stringify({//必须用qs模块，把数据整合成类似get型 uri的形式
                         username: this.form.username,
                         password: this.form.password
                     }))
@@ -298,7 +298,7 @@ export default {
                         email:this.form1.email,
                         UserTags:JSON.stringify(this.form1.UserTags)//这个数组默认带有vue的observer
                     };
-                     this.$ajax.post('/api/register/',this.$qs.stringify(register_data))
+                     this.$ajax.post('/register/',this.$qs.stringify(register_data))
                         .then(function (response) {
                         if(response['data']!= ""){//0==""是正确的，千万注意，所以在后台返回值的时候，尽量避免返回0
                          if(response['data']==2){

@@ -25,6 +25,7 @@ new Vue({
 
 // 配置路由权限
 router.beforeEach((to, from, next) => {
+    // document.title="警察数数_φ(❐_❐✧";
       // 登陆验证alert(document.cookie);
   if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
 

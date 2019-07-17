@@ -31,7 +31,7 @@
         methods:{
             getHistory(){
                var _this=this;
-                this.$ajax.post('/api/getHistory/').then(function (response) {//这个请求不需要发送参数
+                this.$ajax.post('/getHistory/').then(function (response) {//这个请求不需要发送参数
                 // console.log(response);
                     var i =0;
                     var source=[['data','count']];
